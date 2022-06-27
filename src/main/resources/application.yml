@@ -1,0 +1,38 @@
+name: Development
+identity: Exchange
+application:
+  base_url: https://exchange.vngram.com
+  masterdata:
+    allow_init: true
+    should_init: false
+  bot:
+    id: 778616740:AAFkgIa04n4Ma_kNJBFw-yEbrMTxSn9ytDk
+    channel_id: -342157963
+security:
+  algorithm: RSA512
+  permanentTokenTimeout: -1
+  temporaryTokenTimeout: 100000
+  privateKeyPath: /keypairs/prod_private_key.pem
+  publicKeyPath: /keypairs/prod_public_key.pem
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:test
+    username: SA
+    password: ""
+
+  main:
+    allow-circular-references: true
